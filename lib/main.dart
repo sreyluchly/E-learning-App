@@ -4,6 +4,7 @@ import 'features/onboarding/welcome_screen.dart';
 import 'features/auth/login_screen.dart';
 import 'features/dashboard/dashboard_screen.dart';
 import 'features/course/course_screen.dart'; // Import your course list
+import 'features/assignment/assignmentlist_screen.dart'; // Import your assignment list
 
 void main() {
   runApp(const EduStartApp());
@@ -22,14 +23,20 @@ class EduStartApp extends StatelessWidget {
         primaryColor: const Color(0xFF007BFF),
         scaffoldBackgroundColor: Colors.white,
         textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          displayLarge: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
           bodyMedium: TextStyle(fontSize: 14, color: Colors.black87),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF007BFF),
             foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
             padding: const EdgeInsets.symmetric(vertical: 16),
           ),
         ),
@@ -39,8 +46,9 @@ class EduStartApp extends StatelessWidget {
         '/': (context) => const WelcomeScreen(),
         '/login': (context) => const LoginScreen(),
         // FIXED: Point dashboard to MainScreen so the BottomNav is visible
-        '/dashboard': (context) => const MainScreen(), 
-        '/course': (context) => const Scaffold(body: Center(child: Text("Course Detail Screen"))),
+        '/dashboard': (context) => const MainScreen(),
+        '/course': (context) =>
+            const Scaffold(body: Center(child: Text("Course Detail Screen"))),
       },
     );
   }
@@ -62,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const DashboardScreen(),
     const CoursesListScreen(),
-    const Center(child: Text("Assignments Screen")),
+    const AssignmentlistScreen(),
     const Center(child: Text("Messages Screen")),
     const Center(child: Text("More Screen")),
   ];
@@ -70,10 +78,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
+      body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF007BFF),
@@ -86,9 +91,18 @@ class _MainScreenState extends State<MainScreen> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.import_contacts), label: 'Courses'),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment_outlined), label: 'Assignment'),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Message'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.import_contacts),
+            label: 'Courses',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assignment_outlined),
+            label: 'Assignment',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Message',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: 'More'),
         ],
       ),
