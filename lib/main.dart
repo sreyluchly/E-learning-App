@@ -5,6 +5,9 @@ import 'features/auth/login_screen.dart';
 import 'features/dashboard/dashboard_screen.dart';
 import 'features/course/course_screen.dart'; // Import your course list
 import 'features/assignment/assignmentlist_screen.dart'; // Import your assignment list
+import 'features/message/message_screen.dart';
+import 'features/more/more_screen.dart';
+import 'features/quiz/quiz_screen.dart'; // Import your quiz screen
 
 void main() {
   runApp(const EduStartApp());
@@ -70,9 +73,9 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const DashboardScreen(),
     const CoursesListScreen(),
-    const AssignmentlistScreen(),
-    const Center(child: Text("Messages Screen")),
-    const Center(child: Text("More Screen")),
+    const AssignmentListScreen(),
+    const MessageScreen(),
+    const MoreScreen(),
   ];
 
   @override
