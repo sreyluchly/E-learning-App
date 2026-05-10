@@ -7,7 +7,8 @@ import 'features/course/course_screen.dart'; // Import your course list
 import 'features/assignment/assignmentlist_screen.dart'; // Import your assignment list
 import 'features/message/message_screen.dart';
 import 'features/more/more_screen.dart';
-import 'features/quiz/quiz_screen.dart'; // Import your quiz screen
+//import 'features/quiz/quiz_screen.dart'; // Import your quiz screen
+import 'features/assignment/createnew_assignment.dart';
 
 void main() {
   runApp(const EduStartApp());

@@ -93,10 +93,10 @@ class MoreScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.72,
                   decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                   /* borderRadius: BorderRadius.only(
                       topRight: Radius.circular(32),
                       bottomRight: Radius.circular(32),
-                    ),
+                    ),*/
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black12,
