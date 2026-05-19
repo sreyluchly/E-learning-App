@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'schedule_page.dart'; // Import your schedule screen
 
-class MoreScreen extends StatelessWidget {
+class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
 
+  @override
+  State<MoreScreen> createState() => _MoreScreenState();
+}
+
+class _MoreScreenState extends State<MoreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +32,8 @@ class MoreScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        width: 70,
-                        height: 70,
+                        width: 100,
+                        height: 100,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
@@ -77,10 +83,6 @@ class MoreScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.menu, color: Colors.white),
-                      ),
                     ],
                   ),
                 ],
@@ -90,10 +92,10 @@ class MoreScreen extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.72,
+                  width: MediaQuery.of(context).size.width * 1,
                   decoration: const BoxDecoration(
                     color: Colors.white,
-                   /* borderRadius: BorderRadius.only(
+                    /* borderRadius: BorderRadius.only(
                       topRight: Radius.circular(32),
                       bottomRight: Radius.circular(32),
                     ),*/
@@ -121,7 +123,12 @@ class MoreScreen extends StatelessWidget {
                         _MoreMenuItem(
                           icon: Icons.schedule,
                           label: 'Schedule',
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SchedulePage()),
+                            );
+                          },
                         ),
                         _MoreMenuItem(
                           icon: Icons.grade,
@@ -134,8 +141,8 @@ class MoreScreen extends StatelessWidget {
                           onTap: () {},
                         ),
                         _MoreMenuItem(
-                          icon: Icons.assignment_turned_in,
-                          label: 'Assignment & Submission',
+                          icon: Icons.quiz,
+                          label: 'Quiz',
                           onTap: () {},
                         ),
                         _MoreMenuItem(
